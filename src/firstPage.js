@@ -1,19 +1,28 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
-function firstPage(setPage) {
+const FirstPage = ({setPage}) => {
   return (
-    <Grid container direction="row" justify="center" alignItems="center">
-      Hello,Welcome to our Website!
-      <Grid xs={12}>
-        <Button onClick={() => setPage(1)}>Create a plan</Button>
+    <Grid>
+      <Typography variant="h4">Hello,Welcome to our Website!</Typography>
+      <Grid item xs={12} style={{ padding: 10 }}>
+        <Button variant="contained" color="primary" onClick={() => setPage(1)}>
+          Create a plan
+        </Button>
       </Grid>
-      <Grid xs={6}>
-        <Button onClick={() => setPage(2)}>Choose a plan</Button>
+      <Grid item xs={12} style={{ padding: 10 }}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => setPage(2)}
+        >
+          Choose a plan
+        </Button>
       </Grid>
     </Grid>
   );
 }
 
-export default firstPage;
+export default FirstPage;

@@ -1,0 +1,7 @@
+{
+  "gen": { "price": 0, "name": "General" ,"index":0},
+  "spec": { "price": 250, "name": "Specialist","index":1 },
+  "phys": { "price": 133, "name": "Physiotherapy","index":2}
+}
+
+

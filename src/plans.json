@@ -1,0 +1,10 @@
+{
+  "StandardPlan": {
+    "totalPrice": 0,
+    "name": "Standard Plan",
+    "gen": true,
+    "spe": false,
+    "phy": false,
+    "key": 0
+  }
+}
