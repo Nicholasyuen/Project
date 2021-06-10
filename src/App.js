@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import FirstPage from "./firstPage";
 import FourthPage from "./fourthPage";

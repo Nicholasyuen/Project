@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import services from "./services.json";
 import plans from "./plans";
 import Button from "@material-ui/core/Button";
@@ -16,16 +16,7 @@ import ClearIcon from "@material-ui/icons/Clear";
 import Radio from "@material-ui/core/Radio";
 
 const ThridPage = ({ setPage, setFinalChoice }) => {
-  const [rows, setRows] = useState([]);
   const [choice, setChoice] = useState(plans.StandardPlan.name);
-
-  useEffect(() => {
-    let temp = [];
-    Object.keys(plans).forEach((key) => {
-      temp.push(plans[key]);
-    });
-    setRows(temp);
-  }, [plans]);
 
   const handleChange = (e) => {
     setChoice(e.target.value);
@@ -52,23 +43,23 @@ const ThridPage = ({ setPage, setFinalChoice }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row, i) => (
-              <TableRow key={row.key}>
-                <TableCell>{row.name}</TableCell>
+            {Object.entries(plans).map(([key, value]) => (
+              <TableRow key={key}>
+                <TableCell>{value.name}</TableCell>
                 <TableCell align="right">
-                  {row.gen ? <CheckIcon /> : <ClearIcon />}
+                  {value.gen ? <CheckIcon /> : <ClearIcon />}
                 </TableCell>
                 <TableCell align="right">
-                  {row.spe ? <CheckIcon /> : <ClearIcon />}
+                  {value.spe ? <CheckIcon /> : <ClearIcon />}
                 </TableCell>
                 <TableCell align="right">
-                  {row.phy ? <CheckIcon /> : <ClearIcon />}
+                  {value.phy ? <CheckIcon /> : <ClearIcon />}
                 </TableCell>
-                <TableCell align="right">{row.totalPrice}</TableCell>
+                <TableCell align="right">{value.totalPrice}</TableCell>
                 <TableCell align="right">
                   <Radio
-                    value={row.name}
-                    checked={choice === row.name ? true : false}
+                    value={value.name}
+                    checked={choice === value.name ? true : false}
                     onChange={handleChange}
                   />
                 </TableCell>
